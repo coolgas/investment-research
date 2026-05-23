@@ -46,3 +46,4 @@ yq '.tags[]' reports/*/report.md | sort | uniq -c | sort -rn
 `taxonomy.md` defines the controlled vocabularies for frontmatter fields.
 Analysts must consult it and only use values defined there. New tags require
 an explicit edit to `taxonomy.md` (and a commit explaining why).
+# investment-research
