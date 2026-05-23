@@ -1,0 +1,12 @@
+# Local artifacts not for the repo
+*.swp
+*~
+.DS_Store
+__pycache__/
+*.pyc
+
+# raw/ subdirs CAN be committed (they're the evidence trail), but if a
+# report fetches huge PDFs, prefer storing them in cache and committing
+# only the extracted markdown.
+cache/
+*.pdf.tmp
