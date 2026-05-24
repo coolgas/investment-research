@@ -22,7 +22,7 @@ tags:
 | QQQ | Nasdaq-100 | <span class="num">717.54</span> | <span class="up">+0.42%</span> | <span class="up">+17.18%</span> | <span class="up">+8.46%</span> |
 | IWM | Small Caps (Russell) | <span class="num">285.12</span> | <span class="up">+0.93%</span> | <span class="up">+14.81%</span> | <span class="up">+4.79%</span> |
 | ^TNX | 10Y Treasury Yield | <span class="num">4.56%</span> | <span class="down">-0.61%</span> | <span class="up">+8.86%</span> | <span class="up">+3.17%</span> |
-| DXY | US Dollar Index | <span class="num">99.32</span> | <span class="up">+0.13%</span> | <span class="up">+0.91%</span> | <span class="up">+0.40%</span> |
+| DX-Y.NYB | US Dollar Index (DXY) | <span class="num">99.32</span> | <span class="up">+0.13%</span> | <span class="up">+0.91%</span> | <span class="up">+0.40%</span> |
 
 ## Sector ETFs
 
