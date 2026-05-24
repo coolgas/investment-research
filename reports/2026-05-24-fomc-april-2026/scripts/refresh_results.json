@@ -1,0 +1,194 @@
+{
+  "SPY": {
+    "label": "SPY (S&P 500)",
+    "latest_price": 745.64,
+    "latest_date": "2026-05-22",
+    "daily_pct": 0.39,
+    "ytd_pct": 9.44,
+    "post_fomc_pct": 4.79
+  },
+  "QQQ": {
+    "label": "QQQ (Nasdaq-100)",
+    "latest_price": 717.54,
+    "latest_date": "2026-05-22",
+    "daily_pct": 0.42,
+    "ytd_pct": 17.18,
+    "post_fomc_pct": 8.46
+  },
+  "IWM": {
+    "label": "IWM (Small Caps)",
+    "latest_price": 285.12,
+    "latest_date": "2026-05-22",
+    "daily_pct": 0.93,
+    "ytd_pct": 14.81,
+    "post_fomc_pct": 4.79
+  },
+  "TLT": {
+    "label": "TLT (20Y+ Treasury)",
+    "latest_price": 84.68,
+    "latest_date": "2026-05-22",
+    "daily_pct": 0.55,
+    "ytd_pct": -1.25,
+    "post_fomc_pct": -0.83
+  },
+  "XLU": {
+    "label": "XLU (Utilities)",
+    "latest_price": 45.35,
+    "latest_date": "2026-05-22",
+    "daily_pct": 0.78,
+    "ytd_pct": 5.76,
+    "post_fomc_pct": -0.72
+  },
+  "XLF": {
+    "label": "XLF (Financials)",
+    "latest_price": 51.94,
+    "latest_date": "2026-05-22",
+    "daily_pct": 0.41,
+    "ytd_pct": -4.96,
+    "post_fomc_pct": 0.04
+  },
+  "XLRE": {
+    "label": "XLRE (Real Estate)",
+    "latest_price": 44.56,
+    "latest_date": "2026-05-22",
+    "daily_pct": 0.13,
+    "ytd_pct": 11.09,
+    "post_fomc_pct": 2.11
+  },
+  "^TNX": {
+    "label": "10Y Yield",
+    "latest_price": 4.56,
+    "latest_date": "2026-05-22",
+    "daily_pct": -0.61,
+    "ytd_pct": 8.86,
+    "post_fomc_pct": 3.17
+  },
+  "AAPL": {
+    "label": "AAPL",
+    "latest_price": 308.82,
+    "latest_date": "2026-05-22",
+    "daily_pct": 1.26,
+    "ytd_pct": 14.16,
+    "post_fomc_pct": 14.41
+  },
+  "MSFT": {
+    "label": "MSFT",
+    "latest_price": 418.57,
+    "latest_date": "2026-05-22",
+    "daily_pct": -0.12,
+    "ytd_pct": -11.1,
+    "post_fomc_pct": -1.17
+  },
+  "NVDA": {
+    "label": "NVDA",
+    "latest_price": 215.33,
+    "latest_date": "2026-05-22",
+    "daily_pct": -1.9,
+    "ytd_pct": 14.03,
+    "post_fomc_pct": 2.91
+  },
+  "META": {
+    "label": "META",
+    "latest_price": 610.26,
+    "latest_date": "2026-05-22",
+    "daily_pct": 0.47,
+    "ytd_pct": -6.09,
+    "post_fomc_pct": -8.8
+  },
+  "GOOGL": {
+    "label": "GOOGL",
+    "latest_price": 382.97,
+    "latest_date": "2026-05-22",
+    "daily_pct": -1.21,
+    "ytd_pct": 21.61,
+    "post_fomc_pct": 9.44
+  },
+  "AMZN": {
+    "label": "AMZN",
+    "latest_price": 266.32,
+    "latest_date": "2026-05-22",
+    "daily_pct": -0.8,
+    "ytd_pct": 17.58,
+    "post_fomc_pct": 1.25
+  },
+  "JPM": {
+    "label": "JPM",
+    "latest_price": 306.38,
+    "latest_date": "2026-05-22",
+    "daily_pct": 1.12,
+    "ytd_pct": -4.96,
+    "post_fomc_pct": -0.93
+  },
+  "GS": {
+    "label": "GS",
+    "latest_price": 996.73,
+    "latest_date": "2026-05-22",
+    "daily_pct": 0.87,
+    "ytd_pct": 9.58,
+    "post_fomc_pct": 10.06
+  },
+  "BAC": {
+    "label": "BAC",
+    "latest_price": 51.8,
+    "latest_date": "2026-05-22",
+    "daily_pct": 0.6,
+    "ytd_pct": -6.89,
+    "post_fomc_pct": -2.04
+  },
+  "PLD": {
+    "label": "PLD",
+    "latest_price": 145.9,
+    "latest_date": "2026-05-22",
+    "daily_pct": 0.88,
+    "ytd_pct": 13.97,
+    "post_fomc_pct": 5.1
+  },
+  "NEE": {
+    "label": "NEE",
+    "latest_price": 88.55,
+    "latest_date": "2026-05-22",
+    "daily_pct": -1.27,
+    "ytd_pct": 10.16,
+    "post_fomc_pct": -5.97
+  },
+  "WMT": {
+    "label": "WMT",
+    "latest_price": 120.27,
+    "latest_date": "2026-05-22",
+    "daily_pct": -0.88,
+    "ytd_pct": 7.08,
+    "post_fomc_pct": -5.87
+  },
+  "GC=F": {
+    "label": "Gold",
+    "latest_price": 4523.2,
+    "latest_date": "2026-05-22",
+    "daily_pct": -0.37,
+    "ytd_pct": 4.84,
+    "post_fomc_pct": -0.48
+  },
+  "CL=F": {
+    "label": "Crude Oil",
+    "latest_price": 96.6,
+    "latest_date": "2026-05-22",
+    "daily_pct": 0.26,
+    "ytd_pct": 68.53,
+    "post_fomc_pct": -9.62
+  },
+  "DX-Y.NYB": {
+    "label": "DXY",
+    "latest_price": 99.32,
+    "latest_date": "2026-05-22",
+    "daily_pct": 0.13,
+    "ytd_pct": 0.91,
+    "post_fomc_pct": 0.4
+  },
+  "GBPUSD=X": {
+    "label": "GBP/USD",
+    "latest_price": 1.34,
+    "latest_date": "2026-05-22",
+    "daily_pct": -0.01,
+    "ytd_pct": -0.3,
+    "post_fomc_pct": -0.68
+  }
+}
