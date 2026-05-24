@@ -1,17 +1,17 @@
 ---
-date: 2026-05-24
+date: 2026-05-25
 event: fomc-april-2026
 type: data-refresh
 source: yfinance
-data_as_of: 2026-05-24
+data_as_of: 2026-05-25
 tags:
   - data-refresh
   - yfinance
 ---
 
-# Data Refresh: May 24, 2026
+# Data Refresh: May 25, 2026
 
-**Data as of close:** 2026-05-22 (last trading day)
+**Latest close data by asset class:** Equities, bonds, rates as of May 22 (Friday). Commodities, DXY as of May 24 (Sunday). GBP/USD as of May 25 (Monday).
 **Periods:** Daily change (prev close) | YTD (Jan 2, 2026) | Post-FOMC (Apr 29, 2026)
 
 ## Broad Market & Indices
@@ -66,11 +66,11 @@ tags:
 |--------|------|-------|-------|-----|-----------|
 | GC=F | Gold (Futures) | <span class="num">4523.20</span> | <span class="up">+0.05%</span> | <span class="up">+4.84%</span> | <span class="down">-0.48%</span> |
 | CL=F | Crude Oil (WTI) | <span class="num">96.60</span> | <span class="num">0.00%</span> | <span class="up">+68.53%</span> | <span class="down">-9.62%</span> |
-| GBPUSD=X | GBP/USD | <span class="num">1.3487</span> | <span class="up">+0.41%</span> | <span class="up">+0.10%</span> | <span class="down">-0.27%</span> |
+| GBPUSD=X | GBP/USD | <span class="num">1.3487</span> | <span class="up">+0.40%</span> | <span class="up">+0.09%</span> | <span class="down">-0.29%</span> |
 
 ## Notes
 
-- Data via yfinance. Close of 2026-05-22 (last trading day before report date).
+- Data via yfinance (1.4.0). Close dates vary by asset class: equities/bonds/rates close May 22, commodities/DXY close May 24, GBP/USD close May 25.
 - YTD base: Jan 2, 2026 (Jan 1 is a holiday). Post-FOMC base: Apr 29, 2026 (FOMC decision date).
 - Gold via GC=F (COMEX futures). Crude oil via CL=F (WTI futures).
 - DXY via DX-Y.NYB (US Dollar Index futures). GBP/USD via GBPUSD=X.
