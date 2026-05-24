@@ -11,7 +11,7 @@ tags:
 
 # Data Refresh: May 24, 2026
 
-**Data as of close:** 2026-05-22  
+**Data as of close:** 2026-05-22 (most tickers); GBPUSD 2026-05-24  
 **Periods:** Daily change (prev close) | YTD (Jan 1, 2026) | Post-FOMC (Apr 29, 2026)
 
 ## Broad Market & Indices
@@ -66,11 +66,12 @@ tags:
 |--------|------|-------|-------|-----|-----------|
 | GC=F | Gold (Futures) | <span class="num">4523.20</span> | <span class="down">-0.37%</span> | <span class="up">+4.84%</span> | <span class="down">-0.48%</span> |
 | CL=F | Crude Oil (WTI) | <span class="num">96.60</span> | <span class="up">+0.26%</span> | <span class="up">+68.53%</span> | <span class="down">-9.62%</span> |
-| GBPUSD=X | GBP/USD | <span class="num">1.3433</span> | <span class="down">-0.01%</span> | <span class="down">-0.30%</span> | <span class="down">-0.68%</span> |
+| GBPUSD=X | GBP/USD | <span class="num">1.3453</span> | <span class="up">+0.15%</span> | <span class="down">-0.15%</span> | <span class="down">-0.53%</span> |
 
 ## Notes
 
 - Data via yfinance. Close of 2026-05-22 (last trading day before report date).
+- GBPUSD=X reflects weekend session data through 2026-05-24.
 - YTD base: Jan 2, 2026 (Jan 1 is a holiday). Post-FOMC base: Apr 29, 2026 (FOMC decision date).
 - Gold via GC=F (COMEX futures). Crude oil via CL=F (WTI futures).
 - DXY via DX-Y.NYB (US Dollar Index futures). GBP/USD via GBPUSD=X.
