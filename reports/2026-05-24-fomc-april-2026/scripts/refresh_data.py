@@ -51,10 +51,10 @@ def span_cls(val, fmt=".2f"):
     if val is None or pd.isna(val):
         return '<span class="num">N/A</span>'
     if val > 0:
-        return f'<span class="up">+{val:{fmt}}</span>'
+        return f'<span class="up">+{val:{fmt}}%</span>'
     elif val < 0:
-        return f'<span class="down">{val:{fmt}}</span>'
-    return '<span class="num">0.00</span>'
+        return f'<span class="down">{val:{fmt}}%</span>'
+    return '<span class="num">0.00%</span>'
 
 
 def fmt_price(val, fmt=".2f"):
@@ -147,7 +147,7 @@ def main():
     for cat_title, tickers in CATEGORIES:
         lines.append(f"## {cat_title}")
         lines.append("")
-        lines.append("| Ticker | Name | Price | Daily | YTD | Post-FOMC |")
+        lines.append("| Ticker | Name | Price | Daily % | YTD % | Post-FOMC % |")
         lines.append("|--------|------|-------|-------|-----|-----------|")
         for t in tickers:
             name = all_names.get(t, t)
