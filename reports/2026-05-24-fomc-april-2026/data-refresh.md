@@ -66,12 +66,11 @@ tags:
 |--------|------|-------|-------|-----|-----------|
 | GC=F | Gold (Futures) | <span class="num">4523.20</span> | <span class="down">-0.37%</span> | <span class="up">+4.84%</span> | <span class="down">-0.48%</span> |
 | CL=F | Crude Oil (WTI) | <span class="num">96.60</span> | <span class="up">+0.26%</span> | <span class="up">+68.53%</span> | <span class="down">-9.62%</span> |
-| GBPUSD=X | GBP/USD | <span class="num">1.3454</span> | <span class="up">+0.16%</span> | <span class="down">-0.15%</span> | <span class="down">-0.52%</span> |
+| GBPUSD=X | GBP/USD | <span class="num">1.3456</span> | <span class="up">+0.18%</span> | <span class="down">-0.13%</span> | <span class="down">-0.50%</span> |
 
 ## Notes
 
-- Data via yfinance. Close of 2026-05-22 (last trading day before report date).
-- GBPUSD=X reflects weekend session data through 2026-05-24.
+- Data via yfinance. Close of 2026-05-22 (last trading day before report date for equities/bonds/futures); GBPUSD=X reflects weekend session data through 2026-05-24.
 - YTD base: Jan 2, 2026 (Jan 1 is a holiday). Post-FOMC base: Apr 29, 2026 (FOMC decision date).
 - Gold via GC=F (COMEX futures). Crude oil via CL=F (WTI futures).
 - DXY via DX-Y.NYB (US Dollar Index futures). GBP/USD via GBPUSD=X.
