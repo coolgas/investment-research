@@ -3,7 +3,7 @@ date: 2026-05-24
 event: fomc-april-2026
 type: data-refresh
 source: yfinance
-data_as_of: 2026-05-22
+data_as_of: 2026-05-24
 tags:
   - data-refresh
   - yfinance
@@ -11,7 +11,7 @@ tags:
 
 # Data Refresh: May 24, 2026
 
-**Data as of close:** 2026-05-22 (most tickers); GBPUSD 2026-05-24  
+**Data as of close:** 2026-05-22 (most tickers); GBPUSD 2026-05-24
 **Periods:** Daily change (prev close) | YTD (Jan 1, 2026) | Post-FOMC (Apr 29, 2026)
 
 ## Broad Market & Indices
@@ -66,7 +66,7 @@ tags:
 |--------|------|-------|-------|-----|-----------|
 | GC=F | Gold (Futures) | <span class="num">4523.20</span> | <span class="down">-0.37%</span> | <span class="up">+4.84%</span> | <span class="down">-0.48%</span> |
 | CL=F | Crude Oil (WTI) | <span class="num">96.60</span> | <span class="up">+0.26%</span> | <span class="up">+68.53%</span> | <span class="down">-9.62%</span> |
-| GBPUSD=X | GBP/USD | <span class="num">1.3453</span> | <span class="up">+0.15%</span> | <span class="down">-0.15%</span> | <span class="down">-0.53%</span> |
+| GBPUSD=X | GBP/USD | <span class="num">1.3455</span> | <span class="up">+0.17%</span> | <span class="down">-0.14%</span> | <span class="down">-0.51%</span> |
 
 ## Notes
 
