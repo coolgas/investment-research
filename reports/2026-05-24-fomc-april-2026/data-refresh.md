@@ -11,8 +11,8 @@ tags:
 
 # Data Refresh: May 24, 2026
 
-**Data as of close:** 2026-05-22 (most tickers); GBPUSD 2026-05-24
-**Periods:** Daily change (prev close) | YTD (Jan 1, 2026) | Post-FOMC (Apr 29, 2026)
+**Data as of close:** 2026-05-22 (last trading day)
+**Periods:** Daily change (prev close) | YTD (Jan 2, 2026) | Post-FOMC (Apr 29, 2026)
 
 ## Broad Market & Indices
 
@@ -22,7 +22,7 @@ tags:
 | QQQ | Nasdaq-100 | <span class="num">717.54</span> | <span class="up">+0.42%</span> | <span class="up">+17.18%</span> | <span class="up">+8.46%</span> |
 | IWM | Small Caps (Russell) | <span class="num">285.12</span> | <span class="up">+0.93%</span> | <span class="up">+14.81%</span> | <span class="up">+4.79%</span> |
 | ^TNX | 10Y Treasury Yield | <span class="num">4.56%</span> | <span class="down">-0.61%</span> | <span class="up">+8.86%</span> | <span class="up">+3.17%</span> |
-| DX-Y.NYB | US Dollar Index (DXY) | <span class="num">99.32</span> | <span class="up">+0.13%</span> | <span class="up">+0.91%</span> | <span class="up">+0.40%</span> |
+| DX-Y.NYB | US Dollar Index (DXY) | <span class="num">98.99</span> | <span class="down">-0.33%</span> | <span class="up">+0.58%</span> | <span class="up">+0.07%</span> |
 
 ## Sector ETFs
 
@@ -64,13 +64,13 @@ tags:
 
 | Ticker | Name | Price | Daily % | YTD % | Post-FOMC % |
 |--------|------|-------|-------|-----|-----------|
-| GC=F | Gold (Futures) | <span class="num">4523.20</span> | <span class="down">-0.37%</span> | <span class="up">+4.84%</span> | <span class="down">-0.48%</span> |
-| CL=F | Crude Oil (WTI) | <span class="num">96.60</span> | <span class="up">+0.26%</span> | <span class="up">+68.53%</span> | <span class="down">-9.62%</span> |
-| GBPUSD=X | GBP/USD | <span class="num">1.3456</span> | <span class="up">+0.18%</span> | <span class="down">-0.13%</span> | <span class="down">-0.50%</span> |
+| GC=F | Gold (Futures) | <span class="num">4523.20</span> | <span class="up">+0.05%</span> | <span class="up">+4.84%</span> | <span class="down">-0.48%</span> |
+| CL=F | Crude Oil (WTI) | <span class="num">96.60</span> | <span class="num">0.00%</span> | <span class="up">+68.53%</span> | <span class="down">-9.62%</span> |
+| GBPUSD=X | GBP/USD | <span class="num">1.3487</span> | <span class="up">+0.41%</span> | <span class="up">+0.10%</span> | <span class="down">-0.27%</span> |
 
 ## Notes
 
-- Data via yfinance. Close of 2026-05-22 (last trading day before report date for equities/bonds/futures); GBPUSD=X reflects weekend session data through 2026-05-24.
+- Data via yfinance. Close of 2026-05-22 (last trading day before report date).
 - YTD base: Jan 2, 2026 (Jan 1 is a holiday). Post-FOMC base: Apr 29, 2026 (FOMC decision date).
 - Gold via GC=F (COMEX futures). Crude oil via CL=F (WTI futures).
 - DXY via DX-Y.NYB (US Dollar Index futures). GBP/USD via GBPUSD=X.
