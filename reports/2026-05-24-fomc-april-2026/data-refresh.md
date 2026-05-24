@@ -66,7 +66,7 @@ tags:
 |--------|------|-------|-------|-----|-----------|
 | GC=F | Gold (Futures) | <span class="num">4523.20</span> | <span class="up">+0.05%</span> | <span class="up">+4.84%</span> | <span class="down">-0.48%</span> |
 | CL=F | Crude Oil (WTI) | <span class="num">96.60</span> | <span class="num">0.00%</span> | <span class="up">+68.53%</span> | <span class="down">-9.62%</span> |
-| GBPUSD=X | GBP/USD | <span class="num">1.3487</span> | <span class="up">+0.40%</span> | <span class="up">+0.09%</span> | <span class="down">-0.29%</span> |
+| GBPUSD=X | GBP/USD | <span class="num">1.3483</span> | <span class="up">+0.38%</span> | <span class="up">+0.07%</span> | <span class="down">-0.31%</span> |
 
 ## Notes
 
