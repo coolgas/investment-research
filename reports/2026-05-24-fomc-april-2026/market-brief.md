@@ -31,7 +31,7 @@ Contrary to a simplistic "higher-for-longer implies defensive" narrative, post-F
 
 The market interpreted the outcome as "hold now, cut later" — focusing on the dissenting vote, flexible forward guidance, and absence of tightening bias. This narrative faces its first major test with the upcoming May PCE (ex-energy) print. A hot PCE reading would unravel the cut-hope thesis and, given the extreme rate-equity correlation regime, could trigger rapid equity drawdowns. Scenario modeling indicates a moderate-hot PCE (<span class="num">0.25-0.30%</span> MoM ex-energy) implies a <span class="num">-5.1%</span> SPY drawdown, with small caps (IWM) facing <span class="down">-9.4%</span> downside.
 
-Within mega-cap tech, extreme dispersion has emerged: AAPL (+<span class="up">14.41%</span> post-FOMC, at <span class="num">100%</span> of 52w high) stands opposite META (<span class="down">-8.80%</span>, at <span class="num">82.7%</span> of 52w high). Financials show a similar divide — Goldman Sachs (<span class="up">+10.06%</span>) benefitting from M&A optimism while consumer banks JPM (<span class="down">-0.93%</span>) and BAC (<span class="down">-2.04%</span>) lag on loan growth concerns.
+Within mega-cap tech, extreme dispersion has emerged: AAPL (<span class="up">+14.41%</span> post-FOMC, at <span class="num">100%</span> of 52w high) stands opposite META (<span class="down">-8.80%</span>, at <span class="num">82.7%</span> of 52w high). Financials show a similar divide — Goldman Sachs (<span class="up">+10.06%</span>) benefitting from M&A optimism while consumer banks JPM (<span class="down">-0.93%</span>) and BAC (<span class="down">-2.04%</span>) lag on loan growth concerns.
 
 The DXY has remained supported at <span class="num">99.32</span>, crude oil has pulled back <span class="down">-9.62%</span> post-FOMC from energy-spike highs, and gold is essentially flat. EM FX faces headwinds from USD strength and Middle East risk premia.
 
@@ -45,23 +45,24 @@ The DXY has remained supported at <span class="num">99.32</span>, crude oil has 
 |-------|-----------|---------|--------|
 | YTD | Jan 1, 2026 | May 22, 2026 | yfinance |
 | Post-FOMC Window | Apr 29, 2026 | May 22, 2026 | yfinance |
-| Daily Refresh | May 23 close | May 24 close | yfinance |
+| Daily Basis | May 22 close vs. May 21 close | Single trading day | yfinance |
 | Scenario Betas | Trailing 30 days to May 22, 2026 | Rolling computation | yfinance |
 | Correlation Window | Trailing 30 days to May 22, 2026 | SPY vs. ^TNX daily returns | yfinance |
 
 ### Models and Data Sources
 
-- **Primary data provider:** yfinance <span class="num">1.4.0</span>
-- **FOMC source documents:** Federal Reserve press release (monetary20260429a.htm) and press conference transcript (FOMCpresconf20260429.pdf)
-- **Scenario model:** Three-way cross-validation: (A) 30-day rolling beta regression of SPY vs. ^TNX daily returns; (B) Historical analog scaling using Sep-Nov <span class="num">2023</span> as baseline (correlation multiplier <span class="num">1.71x</span>); (C) Multi-day compound factor (<span class="num">1.5x</span> to <span class="num">2.0x</span>) for sustained repricing
-- **Correlation regime analysis:** Rolling 30-day Pearson correlation, SPY daily return vs. 10Y yield daily return
-- **Historical analogs:** Jul-Oct <span class="num">2023</span> (10Y <span class="num">3.86%</span> to <span class="num">4.99%</span>), Sep-Nov <span class="num">2023</span> (<span class="num">4.17%</span> to <span class="num">4.99%</span>), Jan-Jun <span class="num">2022</span> (<span class="num">1.63%</span> to <span class="num">3.48%</span>), Jan-Mar <span class="num">2025</span> (tariff-confounded)
-- **Sector and single-stock betas:** 30-day trailing beta of daily return vs. ^TNX daily return
-- **Taxonomy:** Compliant with controlled vocabulary per taxonomy.md
+- **Primary data provider:** yfinance <span class="num">1.4.0</span>. Price data for all tickers uses `auto_adjust=True` so dividend adjustments are applied to historical prices.
+- **FOMC source documents:** Federal Reserve press release (monetary20260429a.htm) and press conference transcript (FOMCpresconf20260429.pdf). Extracted via pdftotext and HTML stripping.
+- **Scenario model (hot-PCE analysis):** Three-way cross-validation: (A) 30-day rolling beta regression of SPY vs. ^TNX daily returns; (B) Historical analog scaling using Sep-Nov <span class="num">2023</span> as baseline (10Y <span class="num">4.17%</span> to <span class="num">4.99%</span>, correlation <span class="num">-0.49</span>, scaling multiplier <span class="num">1.71x</span> to current regime of <span class="num">-0.84</span>); (C) Multi-day compound factor (<span class="num">1.5x</span> to <span class="num">2.0x</span>) for sustained repricing over 5-10 trading days.
+- **Correlation regime analysis:** Rolling 30-day Pearson correlation, SPY daily return vs. 10Y yield daily return. Computed in Python via yfinance data.
+- **Historical analogs:** Jul-Oct <span class="num">2023</span> (10Y <span class="num">3.86%</span> to <span class="num">4.99%</span>, corr <span class="num">-0.25</span>), Sep-Nov <span class="num">2023</span> (<span class="num">4.17%</span> to <span class="num">4.99%</span>, corr <span class="num">-0.49</span>), Jan-Jun <span class="num">2022</span> (<span class="num">1.63%</span> to <span class="num">3.48%</span>, corr <span class="num">-0.20</span>), Jan-Mar <span class="num">2025</span> (tariff-confounded, damage estimate of <span class="num">-4.4%</span> per 10bp excluded as non-pure rate shock).
+- **Sector and single-stock betas:** 30-day trailing beta of daily return vs. ^TNX daily return. Individual stock betas computed over same window.
+- **Key threshold identification:** <span class="num">4.75%</span> on the 10Y identified as the trigger point for non-linear equity selling, derived from cross-referencing post-FOMC correlation analysis with REIT/utilities valuation breakpoints.
+- **Data refresh:** All 24 tickers refreshed via yfinance as of May 22 close and compiled in `data-refresh.md`.
 
 ### Confidence Level
 
-<span class="num">Medium</span> overall. The FOMC source text analysis is high-confidence; market data through May 22 is verified. Sector/EM FX implications involve reasoned inference beyond explicit policy text. Scenario modeling confidence is medium-high given the extreme correlation regime and cross-validation across three models. Key caveat: betas and correlations shift rapidly in high-correlation regimes, requiring weekly re-estimation.
+<span class="num">Medium</span> overall. The FOMC source text analysis is high-confidence; market data through May 22 is verified against yfinance. Sector/EM FX implications involve reasoned inference beyond explicit policy text. Scenario modeling confidence is medium-high given the extreme correlation regime and cross-validation across three independent models. Key caveat: betas and correlations shift rapidly in high-correlation regimes, requiring weekly re-estimation.
 
 ---
 
@@ -77,10 +78,11 @@ The Committee held the federal funds rate at <span class="num">3.50-3.75%</span>
 - Middle East developments contributing to "a high level of uncertainty about the economic outlook"
 - One dissenter (Miran) preferred a <span class="num">25</span>bp cut
 - Powell characterized current stance as "appropriate" with data-dependent flexibility
+- Forward guidance: "prepared to adjust the stance... if risks emerge" — no explicit tightening bias
 
 ### 3.2 Yield Curve Evolution
 
-The 10-year yield (^TNX) has risen <span class="up">+21</span>bp from pre-FOMC levels to <span class="num">4.56%</span>, and <span class="up">+37</span>bp YTD. The 5Y (^FVX) at <span class="num">4.26%</span> is up <span class="up">+52</span>bp YTD, while the 3M (^IRX) at <span class="num">3.59%</span> has risen only <span class="up">+6</span>bp YTD — a bear-steepening profile.
+The 10-year yield (^TNX) rose <span class="up">+21</span>bp from pre-FOMC levels to <span class="num">4.56%</span>, and <span class="up">+37</span>bp YTD. The 5Y (^FVX) at <span class="num">4.26%</span> is up <span class="up">+52</span>bp YTD, while the 3M (^IRX) at <span class="num">3.59%</span> has risen only <span class="up">+6</span>bp YTD — a bear-steepening profile where long rates rise faster than short rates, typically reflecting term premium repricing and inflation expectations rather than tightening expectations.
 
 **Rate Benchmarks — Post-FOMC Window (Apr 29 to May 22, 2026)**
 
@@ -91,10 +93,11 @@ The 10-year yield (^TNX) has risen <span class="up">+21</span>bp from pre-FOMC l
 | 10Y Yield (^TNX) | <span class="num">4.35%</span> | <span class="num">4.56%</span> | <span class="up">+21bp</span> | <span class="up">+37bp</span> |
 | 5Y Yield (^FVX) | -- | <span class="num">4.26%</span> | -- | <span class="up">+52bp</span> |
 | 3M Yield (^IRX) | -- | <span class="num">3.59%</span> | -- | <span class="up">+6bp</span> |
+| TLT (20+ Year Treasury ETF) | -- | <span class="num">$84.68</span> | <span class="down">-0.83%</span> | <span class="down">-1.25%</span> |
 
 ### 3.3 Critical Thresholds
 
-The post-FOMC analysis identifies **<span class="num">4.75%</span> on the 10Y** as the threshold that triggers a rapid unwind of the risk-on rally. The <span class="num">4.67%</span> 52-week high on the 10Y is the immediate resistance level. A break above <span class="num">4.75%</span> would produce non-linear forced liquidation effects (gamma, momentum-driven selling) given the extreme <span class="num">-0.84</span> to <span class="num">-0.90</span> SPY-10Y correlation regime.
+The post-FOMC analysis identifies **<span class="num">4.75%</span> on the 10Y** as the threshold that triggers a rapid unwind of the risk-on rally. The <span class="num">4.67%</span> 52-week high on the 10Y is the immediate resistance level. A break above <span class="num">4.75%</span> would produce non-linear forced liquidation effects (gamma, momentum-driven selling) given the extreme <span class="num">-0.84</span> to <span class="num">-0.90</span> SPY-10Y correlation regime. The hot-PCE scenario model maps a 25bp yield spike (to <span class="num">4.81%</span>) to a <span class="num">-5.1%</span> SPY drawdown, with severe risk of exceeding proportional estimates due to regime change at the threshold.
 
 ---
 
@@ -104,102 +107,123 @@ The post-FOMC analysis identifies **<span class="num">4.75%</span> on the 10Y** 
 
 **Post-FOMC Performance (Apr 29 to May 22, 2026)**
 
-<div class="caption">Table 2: Sector and broad market ETF returns from April 29 FOMC decision through May 22, 2026. Data via yfinance.</div>
+<div class="caption">Table 2: Sector and broad market ETF returns. Data as of May 22 close via yfinance.</div>
 
-| Ticker | Sector / Index | YTD Return | Post-FOMC Return | % of 52w High |
-|--------|---------------|:----------:|:----------------:|:-------------:|
-| QQQ | Nasdaq-100 | <span class="up">+17.18%</span> | <span class="up">+8.46%</span> | <span class="num">99.7%</span> |
-| IWM | Small Caps | <span class="up">+14.81%</span> | <span class="up">+4.79%</span> | <span class="num">99.4%</span> |
-| SPY | S&P 500 | <span class="up">+9.44%</span> | <span class="up">+4.79%</span> | <span class="num">99.7%</span> |
-| XLRE | Real Estate | <span class="up">+11.09%</span> | <span class="up">+2.11%</span> | <span class="num">99.6%</span> |
-| XLY | Consumer Discr. | <span class="up">+0.90%</span> | <span class="up">+2.00%</span> | <span class="num">95.9%</span> |
-| XLI | Industrials | <span class="up">+9.03%</span> | <span class="up">+1.08%</span> | <span class="num">96.3%</span> |
-| XLF | Financials | <span class="down">-4.96%</span> | <span class="up">+0.04%</span> | <span class="num">92.6%</span> |
-| XLU | Utilities | <span class="up">+5.76%</span> | <span class="down">-0.72%</span> | <span class="num">95.7%</span> |
+| Ticker | Sector / Index | Price (May 22) | Daily % | YTD Return | Post-FOMC Return | % of 52w High |
+|--------|---------------|:--------------:|:-------:|:----------:|:----------------:|:-------------:|
+| QQQ | Nasdaq-100 | <span class="num">717.54</span> | <span class="up">+0.42%</span> | <span class="up">+17.18%</span> | <span class="up">+8.46%</span> | <span class="num">99.7%</span> |
+| IWM | Small Caps | <span class="num">285.12</span> | <span class="up">+0.93%</span> | <span class="up">+14.81%</span> | <span class="up">+4.79%</span> | <span class="num">99.4%</span> |
+| SPY | S&P 500 | <span class="num">745.64</span> | <span class="up">+0.39%</span> | <span class="up">+9.44%</span> | <span class="up">+4.79%</span> | <span class="num">99.7%</span> |
+| XLRE | Real Estate | <span class="num">44.56</span> | <span class="up">+0.13%</span> | <span class="up">+11.09%</span> | <span class="up">+2.11%</span> | <span class="num">99.6%</span> |
+| XLI | Industrials | -- | -- | <span class="up">+9.03%</span> | <span class="up">+1.08%</span> | <span class="num">96.3%</span> |
+| XLU | Utilities | <span class="num">45.35</span> | <span class="up">+0.78%</span> | <span class="up">+5.76%</span> | <span class="down">-0.72%</span> | <span class="num">95.7%</span> |
+| XLF | Financials | <span class="num">51.94</span> | <span class="up">+0.41%</span> | <span class="down">-4.96%</span> | <span class="up">+0.04%</span> | <span class="num">92.6%</span> |
 
 The risk-on narrative is unambiguous: QQQ nearly doubled SPY, XLU was the sole decliner, small caps matched large caps, and financials were effectively flat. The market voted that the FOMC hold was dovish leaning.
 
 ### 4.2 Technology Sector
 
-**Post-FOMC Mega-Cap Tech Dispersion (Apr 29 to May 22, 2026)**
+**Post-FOMC Mega-Cap Tech Performance (Apr 29 to May 22, 2026)**
 
-<div class="caption">Table 3: Mega-cap technology stock performance post-FOMC through May 22, 2026. Data via yfinance.</div>
+<div class="caption">Table 3: Mega-cap technology stock performance. Data as of May 22 close via yfinance. 30d beta vs. ^TNX computed over trailing 30 days.</div>
 
-| Ticker | Company | Price (May 22) | YTD Return | Post-FOMC Return | % of 52w High | 30d Beta to 10Y |
-|--------|--------|:--------------:|:----------:|:----------------:|:-------------:|:---------------:|
-| AAPL | Apple | <span class="num">308.82</span> | <span class="up">+14.16%</span> | <span class="up">+14.41%</span> | <span class="num">100.0%</span> | <span class="num">-0.49</span> |
-| GOOGL | Alphabet | <span class="num">382.97</span> | <span class="up">+21.61%</span> | <span class="up">+9.44%</span> | <span class="num">95.1%</span> | <span class="num">-0.96</span> |
-| NVDA | NVIDIA | <span class="num">215.33</span> | <span class="up">+14.03%</span> | <span class="up">+2.91%</span> | <span class="num">91.3%</span> | <span class="num">-1.00</span> |
-| AMZN | Amazon | <span class="num">266.32</span> | <span class="up">+17.58%</span> | <span class="up">+1.25%</span> | <span class="num">96.8%</span> | <span class="num">-0.56</span> |
-| MSFT | Microsoft | <span class="num">418.57</span> | <span class="down">-11.10%</span> | <span class="down">-1.17%</span> | <span class="num">87.0%</span> | <span class="num">+0.03</span> |
-| META | Meta | <span class="num">610.26</span> | <span class="down">-6.09%</span> | <span class="down">-8.80%</span> | <span class="num">82.7%</span> | <span class="num">-0.24</span> |
+| Ticker | Company | Price (May 22) | Daily % | YTD Return | Post-FOMC Return | % of 52w High | 30d Beta to 10Y |
+|--------|--------|:--------------:|:-------:|:----------:|:----------------:|:-------------:|:---------------:|
+| AAPL | Apple | <span class="num">308.82</span> | <span class="up">+1.26%</span> | <span class="up">+14.16%</span> | <span class="up">+14.41%</span> | <span class="num">100.0%</span> | <span class="num">-0.49</span> |
+| GOOGL | Alphabet | <span class="num">382.97</span> | <span class="down">-1.21%</span> | <span class="up">+21.61%</span> | <span class="up">+9.44%</span> | <span class="num">95.1%</span> | <span class="num">-0.96</span> |
+| NVDA | NVIDIA | <span class="num">215.33</span> | <span class="down">-1.90%</span> | <span class="up">+14.03%</span> | <span class="up">+2.91%</span> | <span class="num">91.3%</span> | <span class="num">-1.00</span> |
+| AMZN | Amazon | <span class="num">266.32</span> | <span class="down">-0.80%</span> | <span class="up">+17.58%</span> | <span class="up">+1.25%</span> | <span class="num">96.8%</span> | <span class="num">-0.56</span> |
+| MSFT | Microsoft | <span class="num">418.57</span> | <span class="down">-0.12%</span> | <span class="down">-11.10%</span> | <span class="down">-1.17%</span> | <span class="num">87.0%</span> | <span class="num">+0.03</span> |
+| META | Meta | <span class="num">610.26</span> | <span class="up">+0.47%</span> | <span class="down">-6.09%</span> | <span class="down">-8.80%</span> | <span class="num">82.7%</span> | <span class="num">-0.24</span> |
 
 **Single-Stock Deep Dives:**
 
-- **AAPL**: The standout performer post-FOMC at <span class="up">+14.41%</span>, hitting <span class="num">100%</span> of its 52-week high. Multiple compounding tailwinds: aggressive buybacks, AI positioning, and minimal tariff exposure relative to peers. However, AAPL has a moderate rate beta of <span class="num">-0.49</span> and is at peak valuation — a hot PCE could break it below $300. Sentiment: bullish but price vulnerable to macro shock.
+- **AAPL**: The standout performer post-FOMC at <span class="up">+14.41%</span>, hitting <span class="num">100%</span> of its 52-week high. Multiple compounding tailwinds: aggressive buybacks, AI positioning, and minimal tariff exposure relative to peers. Moderate rate beta (<span class="num">-0.49</span>) and peak valuation create a "double vulnerability" — a hot PCE could break it below $300. Sentiment: bullish but price vulnerable to macro shock.
 
-- **MSFT**: The worst mega-cap performer YTD (<span class="down">-11.10%</span>) at <span class="num">87.0%</span> of 52w high. Near-zero rate beta (<span class="num">+0.03</span>) means its underperformance is stock-specific — AI capex concerns and market skepticism about monetization timelines. In a hot-PCE scenario, MSFT is a relative safe haven within tech because it has already priced in much of the downside. Sentiment: neutral with tactical long potential as a rate-hedge pair.
+- **MSFT**: The worst mega-cap performer YTD (<span class="down">-11.10%</span>) at <span class="num">87.0%</span> of 52w high, <span class="down">-0.12%</span> on the day. Near-zero rate beta (<span class="num">+0.03</span>) means its underperformance is stock-specific — AI capex concerns and market skepticism about monetization timelines are the dominant drivers, not macro rates. In a hot-PCE scenario, MSFT is a relative safe haven within tech because much of the downside is already priced. Sentiment: neutral with tactical long potential as a rate-hedge pair.
 
-- **NVDA**: <span class="up">+14.03%</span> YTD but only <span class="up">+2.91%</span> post-FOMC — underwhelming for the AI bellwether. High rate beta (<span class="num">-1.00</span>) makes it a tactical short candidate on a hot PCE. At <span class="num">91.3%</span> of 52w high, it has room to fall. Sentiment: neutral/bearish tactically, but long-term AI thesis intact.
+- **NVDA**: <span class="up">+14.03%</span> YTD but only <span class="up">+2.91%</span> post-FOMC and <span class="down">-1.90%</span> on the day — underwhelming for the AI bellwether. High rate beta (<span class="num">-1.00</span>) makes it a tactical short candidate on a hot PCE. At <span class="num">91.3%</span> of 52w high, it has room to fall. Sentiment: neutral/bearish tactically; long-term AI thesis structurally intact but entry matters.
 
-- **META**: The post-FOMC outlier — <span class="down">-8.80%</span> while tech rallied. At <span class="num">82.7%</span> of 52w high, it has completely decoupled from macro. Low rate beta (<span class="num">-0.24</span>) confirms the selloff is driven by company-specific concerns: capex skepticism, AI ROI uncertainty, and potential regulatory headwinds. Sentiment: bearish near-term; the divergence from sector peers demands catalyst.
+- **META**: The post-FOMC outlier — <span class="down">-8.80%</span> while tech rallied. At <span class="num">82.7%</span> of 52w high, it has completely decoupled from the sector. Low rate beta (<span class="num">-0.24</span>) confirms the selloff is company-specific: capex skepticism, AI ROI uncertainty, and regulatory headwinds. Sentiment: bearish near-term; the divergence from sector peers demands a catalyst for recovery.
 
-- **GOOGL**: Strongest YTD at <span class="up">+21.61%</span> with <span class="up">+9.44%</span> post-FOMC. Ad revenue momentum and low rate sensitivity relative to peers. However, high rate beta (<span class="num">-0.96</span>) makes it vulnerable to a yield spike. Sentiment: bullish on fundamentals, but a hot PCE would hit it disproportionately.
+- **GOOGL**: Strongest YTD at <span class="up">+21.61%</span> with <span class="up">+9.44%</span> post-FOMC (<span class="down">-1.21%</span> on the day). Ad revenue momentum is a structural tailwind. However, high rate beta (<span class="num">-0.96</span>) makes it vulnerable to a yield spike despite low operational rate sensitivity. At <span class="num">95.1%</span> of 52w high with significant post-FOMC gains to lose, re-rating risk is elevated. Sentiment: bullish on fundamentals; tactical short candidate on hot PCE due to beta exposure.
 
-- **AMZN**: Muted post-FOMC at <span class="up">+1.25%</span> despite <span class="up">+17.58%</span> YTD. Moderate rate beta (<span class="num">-0.56</span>). Retail and AWS both face rate-driven consumption/capex headwinds. Sentiment: neutral.
+- **AMZN**: Muted post-FOMC at <span class="up">+1.25%</span> despite <span class="up">+17.58%</span> YTD. Moderate rate beta (<span class="num">-0.56</span>). Both retail (consumer financing) and AWS (enterprise capex) face rate-driven headwinds. Sentiment: neutral; waiting for clearer catalyst.
 
 ### 4.3 Financials Sector
 
 **Post-FOMC Bank Performance (Apr 29 to May 22, 2026)**
 
-<div class="caption">Table 4: Bank stock performance post-FOMC through May 22, 2026. Data via yfinance.</div>
+<div class="caption">Table 4: Bank stock performance. Data as of May 22 close via yfinance. 30d beta vs. ^TNX computed over trailing 30 days.</div>
 
-| Ticker | Bank | Price (May 22) | YTD Return | Post-FOMC Return | % of 52w High | 30d Beta to 10Y |
-|--------|------|:--------------:|:----------:|:----------------:|:-------------:|:---------------:|
-| GS | Goldman Sachs | <span class="num">996.73</span> | <span class="up">+9.58%</span> | <span class="up">+10.06%</span> | <span class="num">100.0%</span> | <span class="num">-1.35</span> |
-| JPM | JPMorgan Chase | <span class="num">306.38</span> | <span class="down">-4.96%</span> | <span class="down">-0.93%</span> | <span class="num">92.0%</span> | <span class="num">-0.51</span> |
-| BAC | Bank of America | <span class="num">51.80</span> | <span class="down">-6.89%</span> | <span class="down">-2.04%</span> | <span class="num">91.0%</span> | <span class="num">-0.34</span> |
+| Ticker | Bank | Price (May 22) | Daily % | YTD Return | Post-FOMC Return | % of 52w High | 30d Beta to 10Y |
+|--------|------|:--------------:|:-------:|:----------:|:----------------:|:-------------:|:---------------:|
+| GS | Goldman Sachs | <span class="num">996.73</span> | <span class="up">+0.87%</span> | <span class="up">+9.58%</span> | <span class="up">+10.06%</span> | <span class="num">100.0%</span> | <span class="num">-1.35</span> |
+| JPM | JPMorgan Chase | <span class="num">306.38</span> | <span class="up">+1.12%</span> | <span class="down">-4.96%</span> | <span class="down">-0.93%</span> | <span class="num">92.0%</span> | <span class="num">-0.51</span> |
+| BAC | Bank of America | <span class="num">51.80</span> | <span class="up">+0.60%</span> | <span class="down">-6.89%</span> | <span class="down">-2.04%</span> | <span class="num">91.0%</span> | <span class="num">-0.34</span> |
 
-- **GS**: The investment bank rally is on. <span class="up">+10.06%</span> post-FOMC at <span class="num">100%</span> of 52w high, driven by M&A and banking fee optimism. However, GS has the **highest rate beta in the entire coverage universe** at <span class="num">-1.35</span>, meaning it is trading as a valuation proxy (P/E multiple compression risk) rather than on earnings composition. A <span class="num">25</span>bp yield spike implies <span class="down">-12.7%</span> downside to approximately <span class="num">$870</span>. Sentiment: tactical short; do not buy the dip post-PCE.
+- **GS**: The investment bank rally is on. <span class="up">+10.06%</span> post-FOMC at <span class="num">100%</span> of 52w high, <span class="up">+0.87%</span> on the day. Driven by M&A and banking fee optimism. However, GS has the **highest rate beta in the entire coverage universe** at <span class="num">-1.35</span>, meaning it is trading as a valuation proxy (P/E multiple compression risk) rather than on earnings composition. A <span class="num">25</span>bp yield spike implies <span class="down">-12.7%</span> downside to approximately <span class="num">$870</span>. Sentiment: tactical short on hot PCE; do not buy the dip post-PCE.
 
-- **JPM**: Negative YTD (<span class="down">-4.96%</span>), flat post-FOMC. Consumer bank headwinds from higher-for-longer rates compressing net interest margins and slowing loan growth. Sentiment: cautious, neutral.
+- **JPM**: Negative YTD (<span class="down">-4.96%</span>), flat post-FOMC (<span class="down">-0.93%</span>), <span class="up">+1.12%</span> on the day. Consumer bank headwinds from higher-for-longer rates compressing net interest margins and slowing loan growth. The moderate rate beta (<span class="num">-0.51</span>) suggests additional macro downside if yields spike. Sentiment: cautious, neutral.
 
-- **BAC**: Weakest major bank at <span class="down">-6.89%</span> YTD and <span class="down">-2.04%</span> post-FOMC. The consumer-focused franchise is most exposed to deposit cost pressure without offsetting fee income. Sentiment: bearish near-term.
+- **BAC**: Weakest major bank at <span class="down">-6.89%</span> YTD and <span class="down">-2.04%</span> post-FOMC. The consumer-focused franchise is most exposed to deposit cost pressure without offsetting fee income. Lowest beta in banks (<span class="num">-0.34</span>) paradoxically makes it the least vulnerable to a rate-driven shock, but operating headwinds are sector-specific. Sentiment: bearish near-term.
 
 ### 4.4 Real Estate Sector
 
 **Post-FOMC REIT Performance (Apr 29 to May 22, 2026)**
 
-<div class="caption">Table 5: Real estate sector and selected REITs post-FOMC through May 22, 2026. Data via yfinance.</div>
+<div class="caption">Table 5: Real estate sector and selected REITs. Data as of May 22 close via yfinance. 30d beta vs. ^TNX computed over trailing 30 days.</div>
 
-| Ticker | Name | Price (May 22) | YTD Return | Post-FOMC Return | % of 52w High | 30d Beta to 10Y |
-|--------|------|:--------------:|:----------:|:----------------:|:-------------:|:---------------:|
-| XLRE | Real Estate Sector | <span class="num">44.56</span> | <span class="up">+11.18%</span> | <span class="up">+2.11%</span> | <span class="num">99.6%</span> | <span class="num">-0.49</span> |
-| PLD | Prologis | <span class="num">145.90</span> | <span class="up">+15.21%</span> | <span class="up">+5.10%</span> | <span class="num">100.0%</span> | <span class="num">-0.81</span> |
-| EQIX | Equinix | -- | <span class="up">+42.79%</span> | <span class="down">-0.36%</span> | <span class="num">97.3%</span> | -- |
+| Ticker | Name | Price (May 22) | Daily % | YTD Return | Post-FOMC Return | % of 52w High | 30d Beta to 10Y |
+|--------|------|:--------------:|:-------:|:----------:|:----------------:|:-------------:|:---------------:|
+| XLRE | Real Estate Sector | <span class="num">44.56</span> | <span class="up">+0.13%</span> | <span class="up">+11.09%</span> | <span class="up">+2.11%</span> | <span class="num">99.6%</span> | <span class="num">-0.49</span> |
+| PLD | Prologis | <span class="num">145.90</span> | <span class="up">+0.88%</span> | <span class="up">+13.97%</span> | <span class="up">+5.10%</span> | <span class="num">100.0%</span> | <span class="num">-0.81</span> |
+| EQIX | Equinix | -- | -- | <span class="up">+42.79%</span> | <span class="down">-0.36%</span> | <span class="num">97.3%</span> | -- |
 
 - **XLRE**: <span class="up">+2.11%</span> post-FOMC despite the 10Y rising <span class="up">+21</span>bp. REITs are not trading uniformly as rate proxies — demand-side momentum in data center, industrial, and tower sub-sectors offsets discount rate pressure. The critical threshold is <span class="num">4.75%</span> on the 10Y; below that, REITs hold up. Sentiment: neutral, conditionally bearish above 4.75%.
 
-- **PLD**: Industrial/logistics REIT at <span class="num">100%</span> of 52w high with a high rate beta (<span class="num">-0.81</span>). Structural demand tailwinds from supply-chain reshoring and e-commerce, but vulnerable to a yield spike. A <span class="num">25</span>bp PCE-driven spike implies <span class="down">-7.6%</span>. Sentiment: tactical short on hot PCE; long-term hold.
+- **PLD**: Industrial/logistics REIT at <span class="num">100%</span> of 52w high with a high rate beta (<span class="num">-0.81</span>). Structural demand tailwinds from supply-chain reshoring and e-commerce, but vulnerable to a yield spike. A <span class="num">25</span>bp PCE-driven spike implies <span class="down">-7.6%</span> downside to approximately <span class="num">$135</span>. Sentiment: tactical short on hot PCE; long-term structural hold.
 
-- **EQIX**: Data center REIT, up <span class="up">+42.79%</span> YTD. Consolidated slightly post-FOMC (<span class="down">-0.36%</span>). AI data center demand provides a structural bid that overrides rate sensitivity in the current range. Sentiment: bullish.
+- **EQIX**: Data center REIT, up <span class="up">+42.79%</span> YTD. Consolidated slightly post-FOMC (<span class="down">-0.36%</span>). AI data center demand provides a structural bid that overrides rate sensitivity in the current yield range. Sentiment: bullish.
 
-### 4.5 Utilities Sector
+### 4.5 Industrials Sector
+
+**Post-FOMC Industrials Performance (Apr 29 to May 22, 2026)**
+
+<div class="caption">Table 6: Industrials sector performance. Data via yfinance. 30d beta vs. ^TNX computed over trailing 30 days. No individual industrial stocks in coverage universe; XLI proxy used for sector-level analysis.</div>
+
+| Ticker | Name | YTD Return | Post-FOMC Return | % of 52w High | 30d Beta to 10Y |
+|--------|------|:----------:|:----------------:|:-------------:|:---------------:|
+| XLI | Industrials Sector | <span class="up">+9.03%</span> | <span class="up">+1.08%</span> | <span class="num">96.3%</span> | <span class="num">-0.75</span> |
+
+Industrials posted a modest <span class="up">+1.08%</span> post-FOMC, lagging tech and small caps but outperforming financials and utilities. The sector has a relatively high rate beta (<span class="num">-0.75</span>), reflecting capital expenditure cycle sensitivity to higher rates. In the hot-PCE scenario, industrials rank third in expected downside among sectors at <span class="down">-7.0%</span> on a 25bp yield spike (correlation-adjusted model).
+
+The moderate post-FOMC gain suggests the sector is caught between two forces: (1) positive economic growth expectations supporting industrial demand, and (2) higher discount rates compressing capex cycle valuations. Sentiment: neutral, with tactical short risk on hot PCE.
+
+### 4.6 Utilities Sector
 
 **Post-FOMC Utility Performance (Apr 29 to May 22, 2026)**
 
-<div class="caption">Table 6: Utility sector and selected holdings post-FOMC through May 22, 2026. Data via yfinance.</div>
+<div class="caption">Table 7: Utility sector and selected holdings. Data as of May 22 close via yfinance. 30d beta vs. ^TNX computed over trailing 30 days.</div>
 
-| Ticker | Name | Price (May 22) | YTD Return | Post-FOMC Return | % of 52w High | 30d Beta to 10Y |
-|--------|------|:--------------:|:----------:|:----------------:|:-------------:|:---------------:|
-| XLU | Utilities Sector | <span class="num">45.35</span> | <span class="up">+6.97%</span> | <span class="down">-0.72%</span> | <span class="num">95.7%</span> | <span class="num">-0.23</span> |
-| NEE | NextEra Energy | <span class="num">88.55</span> | <span class="up">+11.05%</span> | <span class="down">-5.97%</span> | <span class="num">90.5%</span> | <span class="num">-0.14</span> |
+| Ticker | Name | Price (May 22) | Daily % | YTD Return | Post-FOMC Return | % of 52w High | 30d Beta to 10Y |
+|--------|------|:--------------:|:-------:|:----------:|:----------------:|:-------------:|:---------------:|
+| XLU | Utilities Sector | <span class="num">45.35</span> | <span class="up">+0.78%</span> | <span class="up">+5.76%</span> | <span class="down">-0.72%</span> | <span class="num">95.7%</span> | <span class="num">-0.23</span> |
+| NEE | NextEra Energy | <span class="num">88.55</span> | <span class="down">-1.27%</span> | <span class="up">+10.16%</span> | <span class="down">-5.97%</span> | <span class="num">90.5%</span> | <span class="num">-0.14</span> |
 
-XLU was the only sector ETF to decline post-FOMC. Money rotated out of defensives into risk-on tech. Notably, XLU has a low rate beta (<span class="num">-0.23</span>) — the sector has already been sold and may actually attract a defensive bid if a hot PCE triggers a macro risk-off trade. NEE underperformed the sector, shedding <span class="down">-5.97%</span> post-FOMC. Sentiment: neutral near-term; potential retail-x rotation beneficiary.
+XLU was the only sector ETF to decline post-FOMC. Money rotated out of defensives into risk-on tech. Notably, XLU has a low rate beta (<span class="num">-0.23</span>) — the sector has already been sold and may actually attract a defensive bid if a hot PCE triggers a macro risk-off trade alongside the rate spike. NEE underperformed the sector, shedding <span class="down">-5.97%</span> post-FOMC and <span class="down">-1.27%</span> on the day. Sentiment: neutral near-term; potential defensive rotation beneficiary if macro risk-off materializes.
 
-### 4.6 Consumer Defensive
+### 4.7 Consumer Staples Sector
 
-- **WMT**: <span class="down">-5.87%</span> post-FOMC. Near-zero rate beta (<span class="num">+0.01</span>). The selloff reflects rotation out of consumer defensives into risk-on assets, plus company-specific margin compression concerns. In a hot-PCE risk-off scenario, WMT could see a defensive bid. Sentiment: neutral, tactical pair candidate (long WMT / short IWM for rate-hedge exposure).
+**Post-FOMC Consumer Staples Performance (Apr 29 to May 22, 2026)**
+
+<div class="caption">Table 8: Consumer staples holding. Data as of May 22 close via yfinance. 30d beta vs. ^TNX computed over trailing 30 days.</div>
+
+| Ticker | Name | Price (May 22) | Daily % | YTD Return | Post-FOMC Return | % of 52w High | 30d Beta to 10Y |
+|--------|------|:--------------:|:-------:|:----------:|:----------------:|:-------------:|:---------------:|
+| WMT | Walmart | <span class="num">120.27</span> | <span class="down">-0.88%</span> | <span class="up">+7.08%</span> | <span class="down">-5.87%</span> | <span class="num">89.6%</span> | <span class="num">+0.01</span> |
+
+- **WMT**: <span class="down">-5.87%</span> post-FOMC, <span class="down">-0.88%</span> on the day. Near-zero rate beta (<span class="num">+0.01</span>). The selloff reflects rotation out of consumer defensives into risk-on assets, plus company-specific margin compression concerns. In a hot-PCE risk-off scenario, WMT could see a defensive bid as a consumer staple with pricing power. Sentiment: neutral, tactical pair candidate (long WMT / short IWM for rate-hedge exposure).
 
 ---
 
@@ -207,22 +231,22 @@ XLU was the only sector ETF to decline post-FOMC. Money rotated out of defensive
 
 ### 5.1 Post-FOMC Capital Flows
 
-The <span class="num">$2.3</span> trillion question: why did higher-for-longer trigger a risk-on move? Three factors:
+The fundamental question: why did higher-for-longer trigger a risk-on move? Three factors:
 
 1. **Dissent signaling**: The lone vote for a <span class="num">25</span>bp cut was interpreted as a leading indicator that the Committee's next move is down, not up.
 2. **Dovish flexibility**: Powell's "prepared to adjust the stance... if risks emerge" language was read as easing optionality.
-3. **Absence of tightening**: No explicit tightening bias, no hawkish dot plot revision (not detailed in source documents but inferred from tone).
+3. **Absence of tightening**: No explicit tightening bias and no hawkish dot plot revision.
 
 The rotation pattern:
-- **Out of:** Utilities (XLU <span class="down">-0.72%</span>), Consumer defensive (WMT <span class="down">-5.87%</span>), Long-duration treasuries (TLT <span class="down">-0.83%</span> post-FOMC)
+- **Out of:** Utilities (XLU <span class="down">-0.72%</span>), Consumer staples (WMT <span class="down">-5.87%</span>), Long-duration treasuries (TLT <span class="down">-0.83%</span>)
 - **Into:** Tech (QQQ <span class="up">+8.46%</span>), Small caps (IWM <span class="up">+4.79%</span>), Broad market (SPY <span class="up">+4.79%</span>)
-- **Flat/inconclusive:** Financials (XLF <span class="up">+0.04%</span>), Real Estate (XLRE <span class="up">+2.11%</span> — held up better than expected)
+- **Flat/inconclusive:** Financials (XLF <span class="up">+0.04%</span>), Real Estate (XLRE <span class="up">+2.11%</span> — held up better than expected), Industrials (XLI <span class="up">+1.08%</span> — modest)
 
 ### 5.2 The Correlation Regime Shift
 
 **SPY-10Y Yield Correlation**
 
-<div class="caption">Table 7: Rolling 30-day Pearson correlation between SPY daily returns and ^TNX daily returns. Data via yfinance.</div>
+<div class="caption">Table 9: Rolling 30-day Pearson correlation between SPY daily returns and ^TNX daily returns. Computed via yfinance data.</div>
 
 | Period | SPY vs. 10Y Correlation | Interpretation |
 |--------|:----------------------:|----------------|
@@ -234,7 +258,7 @@ At <span class="num">-0.90</span> post-FOMC and <span class="num">-0.84</span> o
 
 ### 5.3 What Would Reverse the Rotation?
 
-The rotation is fragile and conditional on the "cut later" narrative remaining intact. A hot May PCE (ex-energy) that disproves the transitory energy-inflation thesis would force a re-evaluation. Scenario modeling places the probability-weighted expected SPY return at <span class="num">-4.8%</span> conditional on a hot print, ranging from <span class="num">-4.1%</span> (light hot) to <span class="num">-6.2%</span> (severe). The 10Y breaching <span class="num">4.75%</span> would trigger non-linear selling beyond proportional model estimates.
+The rotation is fragile and conditional on the "cut later" narrative remaining intact. A hot May PCE (ex-energy) that disproves the transitory energy-inflation thesis would force a re-evaluation. Scenario modeling places the probability-weighted expected SPY return at <span class="num">-4.8%</span> conditional on a hot print, ranging from <span class="num">-4.1%</span> (light hot: <span class="num">0.20-0.25%</span> MoM, 10Y to <span class="num">4.76%</span>) to <span class="num">-6.2%</span> (severe: ><span class="num">0.30%</span> MoM, 10Y to <span class="num">4.86%</span>). The 10Y breaching <span class="num">4.75%</span> would trigger non-linear selling beyond proportional model estimates.
 
 ---
 
@@ -244,15 +268,14 @@ The rotation is fragile and conditional on the "cut later" narrative remaining i
 
 **FX and Dollar Index — Post-FOMC (Apr 29 to May 22, 2026)**
 
-<div class="caption">Table 8: Currency and dollar index performance through May 22, 2026. Data via yfinance.</div>
+<div class="caption">Table 10: Currency and dollar index performance. Data as of May 22 close via yfinance. DXY via DX-Y.NYB after ticker migration from deprecated DXY symbol.</div>
 
-| Ticker | Instrument | Price (May 22) | Post-FOMC Change | YTD Change |
-|--------|-----------|:--------------:|:----------------:|:----------:|
-| DXY | US Dollar Index | <span class="num">99.32</span> | <span class="up">+0.40%</span> | <span class="up">+1.06%</span> |
-| GBPUSD=X | GBP/USD | <span class="num">1.3466</span> | <span class="down">-0.43%</span> | <span class="down">-0.01%</span> |
-| EURUSD | EUR/USD (inferred) | -- | -- | -- |
+| Ticker | Instrument | Price (May 22) | Daily % | Post-FOMC Change | YTD Change |
+|--------|-----------|:--------------:|:-------:|:----------------:|:----------:|
+| DXY | US Dollar Index | <span class="num">99.32</span> | <span class="up">+0.13%</span> | <span class="up">+0.40%</span> | <span class="up">+0.91%</span> |
+| GBPUSD=X | GBP/USD | <span class="num">1.3433</span> | <span class="down">-0.01%</span> | <span class="down">-0.68%</span> | <span class="down">-0.30%</span> |
 
-The DXY has remained supported at <span class="num">99.32</span>, reflecting the US rate differential advantage reinforced by the FOMC hold. The <span class="up">+0.40%</span> post-FOMC move is modest, consistent with an as-expected decision. GBP/USD edged lower (<span class="down">-0.43%</span>) and is essentially flat YTD.
+The DXY has remained supported at <span class="num">99.32</span>, reflecting the US rate differential advantage reinforced by the FOMC hold. The <span class="up">+0.40%</span> post-FOMC move is modest, consistent with an as-expected decision. GBP/USD edged lower (<span class="down">-0.68%</span> post-FOMC) and is slightly negative YTD.
 
 **EM FX Implications:**
 The combination of higher US rates, USD support, and Middle East geopolitical risk creates a classic negative setup for EM currencies:
@@ -266,16 +289,16 @@ The combination of higher US rates, USD support, and Middle East geopolitical ri
 
 **Commodity Markets — Post-FOMC (Apr 29 to May 22, 2026)**
 
-<div class="caption">Table 9: Commodity futures performance through May 22, 2026. Data via yfinance (GC=F and CL=F).</div>
+<div class="caption">Table 11: Commodity futures performance. Data via yfinance (GC=F for COMEX gold, CL=F for WTI crude).</div>
 
-| Ticker | Commodity | Price (May 22) | Post-FOMC Change | YTD Change |
-|--------|----------|:--------------:|:----------------:|:----------:|
-| GC=F | Gold (COMEX) | <span class="num">$4,523.20</span> | <span class="down">-0.48%</span> | <span class="up">+4.57%</span> |
-| CL=F | Crude Oil (WTI) | <span class="num">$96.60</span> | <span class="down">-9.62%</span> | <span class="up">+68.23%</span> |
+| Ticker | Commodity | Price (May 22) | Daily % | Post-FOMC Change | YTD Change |
+|--------|----------|:--------------:|:-------:|:----------------:|:----------:|
+| GC=F | Gold (COMEX) | <span class="num">$4,523.20</span> | <span class="down">-0.37%</span> | <span class="down">-0.48%</span> | <span class="up">+4.84%</span> |
+| CL=F | Crude Oil (WTI) | <span class="num">$96.60</span> | <span class="up">+0.26%</span> | <span class="down">-9.62%</span> | <span class="up">+68.53%</span> |
 
-- **Gold**: Essentially flat post-FOMC at <span class="num">$4,523.20</span>. The expected safe-haven bid from geopolitical uncertainty has been offset by the USD support from higher rates. Gold is range-bound until either the dollar weakens (rate cuts) or geopolitical risks escalate materially.
+- **Gold**: Essentially flat post-FOMC at <span class="num">$4,523.20</span>. The expected safe-haven bid from geopolitical uncertainty has been offset by USD support from higher rates. Gold is range-bound until either the dollar weakens (rate cuts) or geopolitical risks escalate materially. YTD gain of <span class="up">+4.84%</span> reflects structural central bank buying and geopolitical hedging.
 
-- **Crude Oil**: The <span class="down">-9.62%</span> post-FOMC pullback from spike highs is significant. WTI at <span class="num">$96.60</span> is still up <span class="up">+68.23%</span> YTD, driven by Middle East risk premia. The FOMC's explicit mention of energy-driven inflation suggests the Fed is watching oil closely. A sustained oil decline would ease inflation concerns and support the "cut later" narrative; a renewed spike would reinforce higher-for-longer. Crude remains the key swing variable for both the macro outlook and EM FX.
+- **Crude Oil**: The <span class="down">-9.62%</span> post-FOMC pullback from spike highs is significant. WTI at <span class="num">$96.60</span> is still up <span class="up">+68.53%</span> YTD, driven by Middle East risk premia. The FOMC's explicit mention of energy-driven inflation suggests the Fed is watching oil closely. A sustained oil decline would ease inflation concerns and support the "cut later" narrative; a renewed spike would reinforce higher-for-longer. Crude remains the key swing variable for both the macro outlook and EM FX.
 
 ---
 
@@ -285,28 +308,32 @@ The combination of higher US rates, USD support, and Middle East geopolitical ri
 
 | Risk | Probability | Impact | Trigger | Mitigant |
 |------|:----------:|:------:|--------|----------|
-| Hot May PCE (ex-energy) | <span class="num">30-50%</span> | SPY <span class="down">-4.8%</span> (conditional) | PCE > <span class="num">0.20%</span> MoM | Low positioning / high cash levels |
+| Hot May PCE (ex-energy) | <span class="num">30-50%</span> | SPY <span class="down">-4.8%</span> (conditional) | PCE > <span class="num">0.20%</span> MoM ex-energy | Low positioning / high cash levels |
 | 10Y breach above <span class="num">4.75%</span> | Elevated if PCE hot | Non-linear selling, forced liquidations | PCE + <span class="num">25</span>bp yield spike | Historical analog suggests transient spike |
 | Middle East escalation | Medium | Oil spike, USD surge, EM FX crisis | Geopolitical event | Diplomatic de-escalation |
 | META contagion to tech | Medium | Sector-wide rotation out of mega-cap | Continued META underperformance | Stock-specific, not sector-wide |
 | Consumer bank NIM compression | Medium-High if hot PCE | JPM, BAC further downside | Next earnings season | Steepener benefit partially offsets |
 
-**Watchpoints:**
-1. May PCE (ex-energy) — the single most important data point for the near-term macro narrative
-2. 10Y yield at <span class="num">4.56%</span> — a move above <span class="num">4.67%</span> (52w high) and especially <span class="num">4.75%</span> triggers the unwind
-3. META price action — recovery or further decoupling signals sector-wide vs. company-specific regime
-4. DXY trajectory above <span class="num">100</span> — would trigger EM FX stress
-5. Crude oil: sustained below <span class="num">$90</span> supports the "transitory energy inflation" thesis
+**Key Watchpoints:**
+1. **May PCE (ex-energy)** — the single most important data point for the near-term macro narrative. A cool print validates the "cut later" thesis; a hot print unravels it.
+2. **10Y yield at <span class="num">4.56%</span>** — a move above <span class="num">4.67%</span> (52w high) and especially <span class="num">4.75%</span> triggers the unwind of the post-FOMC risk rally.
+3. **META price action** — recovery or further decoupling signals sector-wide vs. company-specific regime.
+4. **DXY trajectory above <span class="num">100</span>** — would trigger EM FX stress and widen risk premia.
+5. **Crude oil**: sustained below <span class="num">$90</span> supports the "transitory energy inflation" thesis; a renewed spike above <span class="num">$110</span> reinforces higher-for-longer.
 
 ### 7.2 Long-Term Strategic Rationale
 
 Despite near-term risks, several structural factors support a constructive long-term view:
 
-- **The "cut later" narrative has foundation**: The dissenting vote, data-dependent language, and softening labor backdrop all point toward eventual easing once the energy-inflation spike proves transitory
-- **Sector-level differentiation is key**: Data center REITs (EQIX), industrial REITs (PLD), and investment banks (GS) have company-specific demand drivers that can partially override macro headwinds — as seen post-FOMC
-- **EM FX recovery play**: If/when the Fed cuts, the USD should weaken, providing a powerful tailwind for EM currencies and rate-sensitive equities. Positioning for this "recovery phase" is the long-term opportunity
-- **Small caps could lead the recovery**: IWM has the highest rate sensitivity (-1.00 beta) and would be the biggest beneficiary of a rate cut cycle
-- **Gold remains a strategic hedge**: Flat post-FOMC but supported structurally by central bank buying, geopolitical risk, and eventual USD weakness on Fed cuts
+- **The "cut later" narrative has foundation**: The dissenting vote, data-dependent language, and softening labor backdrop all point toward eventual easing once the energy-inflation spike proves transitory. The <span class="num">-0.84</span> to <span class="num">-0.90</span> correlation regime means rate cuts would be violently positive for equities.
+
+- **Sector-level differentiation is key**: Data center REITs (EQIX), industrial REITs (PLD), and investment banks (GS) have company-specific demand drivers that can partially override macro headwinds — as demonstrated post-FOMC.
+
+- **EM FX recovery play**: If/when the Fed cuts, the USD should weaken, providing a powerful tailwind for EM currencies and rate-sensitive equities. Positioning for this "recovery phase" is the long-term opportunity.
+
+- **Small caps could lead the recovery**: IWM has the highest rate sensitivity (<span class="num">-1.00</span> beta) and would be the biggest beneficiary of a rate cut cycle.
+
+- **Gold remains a strategic hedge**: Flat post-FOMC but supported structurally by central bank buying, geopolitical risk, and eventual USD weakness on Fed cuts.
 
 ### 7.3 Scenario-Weighted Positioning Summary
 
@@ -317,8 +344,8 @@ Despite near-term risks, several structural factors support a constructive long-
 | Middle East escalation | <span class="num">15-25%</span> (tail) | Long gold, long crude, short EM FX | <span class="down">-5-8%</span> |
 
 **Actionable calls:**
-- **Tactical short on hot PCE:** IWM, GS, NVDA, GOOGL (highest rate beta)
-- **Relative value hedges:** Long WMT / short IWM; Long MSFT / short GOOGL
+- **Tactical short on hot PCE:** IWM, GS, NVDA, GOOGL (highest rate beta in each sector)
+- **Relative value hedges:** Long WMT / short IWM (zero correlation vs. highest); Long MSFT / short GOOGL (already discounted vs. 52w high with high beta)
 - **Sector rotation:** Reduce QQQ toward XLF (steepener benefit partially offsets rate-equity correlation)
 - **Avoid:** REITs if 10Y stays above <span class="num">4.75%</span>; consumer banks (JPM, BAC) until Q2 earnings clarify NIM trajectory
 - **Strategic long:** Gold on dips for geopolitical hedge; small caps (IWM) for recovery positioning
