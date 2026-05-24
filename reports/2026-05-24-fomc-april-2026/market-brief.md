@@ -209,7 +209,7 @@ The post-FOMC period (Apr 29 → May 22) saw a powerful risk-on rotation. SPY at
 | Ticker | Name | Price | Daily % | YTD % | Post-FOMC % |
 |--------|------|-------|-------|-----|-----------|
 | DX-Y.NYB | US Dollar Index (DXY) | <span class="num">99.32</span> | <span class="up">+0.13%</span> | <span class="up">+0.91%</span> | <span class="up">+0.40%</span> |
-| GBPUSD=X | GBP/USD | <span class="num">1.3454</span> | <span class="up">+0.16%</span> | <span class="down">-0.15%</span> | <span class="down">-0.52%</span> |
+| GBPUSD=X | GBP/USD | <span class="num">1.3456</span> | <span class="up">+0.18%</span> | <span class="down">-0.13%</span> | <span class="down">-0.50%</span> |
 | GC=F | Gold (COMEX Futures) | <span class="num">4,523.20</span> | <span class="down">-0.37%</span> | <span class="up">+4.84%</span> | <span class="down">-0.48%</span> |
 | CL=F | Crude Oil (WTI Futures) | <span class="num">96.60</span> | <span class="up">+0.26%</span> | <span class="up">+68.53%</span> | <span class="down">-9.62%</span> |
 
@@ -219,7 +219,7 @@ The dollar index is at <span class="num">99.32</span>, up <span class="up">+0.91
 
 ### GBP/USD
 
-Cable at <span class="num">1.3454</span> (May 24 weekend session data), down <span class="down">-0.15%</span> YTD and <span class="down">-0.52%</span> post-FOMC. The modest weakness reflects the USD's incremental yield advantage post-FOMC. The Bank of England's own rate trajectory will be the key driver going forward.
+Cable at <span class="num">1.3456</span> (May 24 weekend session data), down <span class="down">-0.13%</span> YTD and <span class="down">-0.50%</span> post-FOMC. The modest weakness reflects the USD's incremental yield advantage post-FOMC. The Bank of England's own rate trajectory will be the key driver going forward.
 
 ### Gold (GC=F)
 
