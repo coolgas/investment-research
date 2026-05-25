@@ -22,7 +22,7 @@ tags:
 | QQQ | Nasdaq-100 | <span class="num">717.54</span> | <span class="up">+0.42%</span> | <span class="up">+17.18%</span> | <span class="up">+8.46%</span> |
 | IWM | Small Caps (Russell) | <span class="num">285.12</span> | <span class="up">+0.93%</span> | <span class="up">+14.81%</span> | <span class="up">+4.79%</span> |
 | ^TNX | 10Y Treasury Yield | <span class="num">4.56%</span> | <span class="down">-0.61%</span> | <span class="up">+8.86%</span> | <span class="up">+3.17%</span> |
-| DX-Y.NYB | US Dollar Index (DXY) | <span class="num">98.99</span> | <span class="down">-0.33%</span> | <span class="up">+0.58%</span> | <span class="up">+0.07%</span> |
+| DX-Y.NYB | US Dollar Index (DXY) | <span class="num">99.02</span> | <span class="down">-0.30%</span> | <span class="up">+0.61%</span> | <span class="up">+0.11%</span> |
 
 ## Sector ETFs
 
@@ -66,7 +66,7 @@ tags:
 |--------|------|-------|-------|-----|-----------|
 | GC=F | Gold (Futures) | <span class="num">4523.20</span> | <span class="up">+0.05%</span> | <span class="up">+4.84%</span> | <span class="down">-0.48%</span> |
 | CL=F | Crude Oil (WTI) | <span class="num">96.60</span> | <span class="num">0.00%</span> | <span class="up">+68.53%</span> | <span class="down">-9.62%</span> |
-| GBPUSD=X | GBP/USD | <span class="num">1.3483</span> | <span class="up">+0.38%</span> | <span class="up">+0.07%</span> | <span class="down">-0.31%</span> |
+| GBPUSD=X | GBP/USD | <span class="num">1.3483</span> | <span class="up">+0.36%</span> | <span class="up">+0.05%</span> | <span class="down">-0.32%</span> |
 
 ## Notes
 
