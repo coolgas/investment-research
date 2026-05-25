@@ -3,7 +3,7 @@ date: 2026-05-25
 event: fomc-april-2026
 type: data-refresh
 source: yfinance
-data_as_of: 2026-05-25
+data_as_of: 2026-05-22
 tags:
   - data-refresh
   - yfinance
@@ -11,7 +11,7 @@ tags:
 
 # Data Refresh: May 25, 2026
 
-**Latest close data by asset class:** All tickers as of May 22 (Friday) close.
+**Latest close data by asset class:** All tickers as of May 22 (Friday). Equities, bonds, rates, commodities, DXY, and FX all closed May 22 in this pull.
 **Periods:** Daily change (prev close) | YTD (Jan 2, 2026) | Post-FOMC (Apr 29, 2026)
 
 ## Broad Market & Indices
@@ -33,7 +33,7 @@ tags:
 | XLF | Financials | <span class="num">51.94</span> | <span class="up">+0.41%</span> | <span class="down">-4.96%</span> | <span class="up">+0.04%</span> |
 | XLRE | Real Estate | <span class="num">44.56</span> | <span class="up">+0.13%</span> | <span class="up">+11.09%</span> | <span class="up">+2.11%</span> |
 
-## Mega-Cap Tech
+## Single Stocks
 
 | Ticker | Name | Price | Daily % | YTD % | Post-FOMC % |
 |--------|------|-------|-------|-----|-----------|
@@ -43,19 +43,9 @@ tags:
 | META | Meta | <span class="num">610.26</span> | <span class="up">+0.47%</span> | <span class="down">-6.09%</span> | <span class="down">-8.80%</span> |
 | GOOGL | Alphabet | <span class="num">382.97</span> | <span class="down">-1.21%</span> | <span class="up">+21.61%</span> | <span class="up">+9.44%</span> |
 | AMZN | Amazon | <span class="num">266.32</span> | <span class="down">-0.80%</span> | <span class="up">+17.58%</span> | <span class="up">+1.25%</span> |
-
-## Banks
-
-| Ticker | Name | Price | Daily % | YTD % | Post-FOMC % |
-|--------|------|-------|-------|-----|-----------|
 | JPM | JPMorgan Chase | <span class="num">306.38</span> | <span class="up">+1.12%</span> | <span class="down">-4.96%</span> | <span class="down">-0.93%</span> |
 | GS | Goldman Sachs | <span class="num">996.73</span> | <span class="up">+0.87%</span> | <span class="up">+9.58%</span> | <span class="up">+10.06%</span> |
 | BAC | Bank of America | <span class="num">51.80</span> | <span class="up">+0.60%</span> | <span class="down">-6.89%</span> | <span class="down">-2.04%</span> |
-
-## Other Holdings
-
-| Ticker | Name | Price | Daily % | YTD % | Post-FOMC % |
-|--------|------|-------|-------|-----|-----------|
 | PLD | Prologis | <span class="num">145.90</span> | <span class="up">+0.88%</span> | <span class="up">+13.97%</span> | <span class="up">+5.10%</span> |
 | NEE | NextEra Energy | <span class="num">88.55</span> | <span class="down">-1.27%</span> | <span class="up">+10.16%</span> | <span class="down">-5.97%</span> |
 | WMT | Walmart | <span class="num">120.27</span> | <span class="down">-0.88%</span> | <span class="up">+7.08%</span> | <span class="down">-5.87%</span> |
@@ -70,17 +60,19 @@ tags:
 
 ## SPY-10Y Correlation
 
-| Period | Correlation | Direction |
-|--------|------------|-----------|
-| YTD (Jan 2 -- May 22) | <span class="num">+0.45</span> | Equity-yield positive correlation (reflation regime) |
-| Post-FOMC (Apr 29 -- May 22) | <span class="num">+0.46</span> | Correlation steady post-FOMC; no regime shift |
+| Period | Correlation | Observations | Interpretation |
+|--------|------------|-------------|----------------|
+| YTD (Jan 2 - May 22) | <span class="down">-0.39</span> | 95 days | Moderate negative: equities rise as yields fall |
+| Post-FOMC (Apr 29 - May 22) | <span class="down">-0.90</span> | 18 days | Strong negative: sharp regime shift post-FOMC |
+
+Correlation computed as SPY daily returns vs 10Y Treasury yield daily changes. Post-FOMC correlation of -0.90 is notably strong, indicating a significant "bad news is good news" regime where lower yields are tightly coupled with equity upside in the wake of the April FOMC decision.
 
 ## Notes
 
-- Data via yfinance. All close dates: May 22, 2026 (Friday).
-- YTD base: Jan 2, 2026 (Jan 1 is a holiday). Post-FOMC base: Apr 29, 2026 (FOMC decision date).
+- Data via yfinance. All tickers close May 22, 2026 (Friday) in this pull. Unlike prior refreshes, commodities and FX did not have weekend data available at pull time.
+- YTD base: Jan 2, 2026 (first trading day of the year; Jan 1 is a holiday). Post-FOMC base: Apr 29, 2026 (FOMC decision date).
 - Gold via GC=F (COMEX futures). Crude oil via CL=F (WTI futures).
 - DXY via DX-Y.NYB (US Dollar Index futures). GBP/USD via GBPUSD=X.
+- 10Y Treasury yield via ^TNX (CBOE 10-Year Treasury Note Yield Index). Displayed as percentage points.
 - Span classes: up (green), down (red), num (neutral). No emojis.
 - YTD changes use auto_adjust=True in yfinance, so dividend adjustments are applied to historical prices.
-- SPY-10Y YTD correlation: +0.45. Post-FOMC: +0.46. Both positive, consistent with reflation/"good growth" regime.
