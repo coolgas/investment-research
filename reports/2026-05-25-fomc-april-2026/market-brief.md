@@ -274,7 +274,7 @@ The post-FOMC winners (QQQ, IWM) become the hot-PCE losers due to their high rat
 | Ticker | Name | Price | Daily % | YTD % | Post-FOMC % |
 |--------|------|-------|-------|-----|-----------|
 | DX-Y.NYB | US Dollar Index (DXY) | <span class="num">99.32</span> | <span class="up">+0.13%</span> | <span class="up">+0.91%</span> | <span class="up">+0.40%</span> |
-| GBPUSD=X | GBP/USD | <span class="num">1.3433</span> | <span class="down">-0.01%</span> | <span class="down">-0.30%</span> | <span class="down">-0.68%</span> |
+| GBPUSD=X | GBP/USD | <span class="num">1.3400</span> | <span class="down">-0.01%</span> | <span class="down">-0.30%</span> | <span class="down">-0.68%</span> |
 | GC=F | Gold (COMEX Futures) | <span class="num">4,521.00</span> | <span class="down">-0.41%</span> | <span class="up">+4.79%</span> | <span class="down">-0.53%</span> |
 | CL=F | Crude Oil (WTI Futures) | <span class="num">96.60</span> | <span class="up">+0.26%</span> | <span class="up">+68.53%</span> | <span class="down">-9.62%</span> |
 
@@ -284,7 +284,7 @@ The dollar index is at <span class="num">99.32</span>, up <span class="up">+0.91
 
 ### GBP/USD
 
-Cable at <span class="num">1.3433</span>, down <span class="down">-0.30%</span> YTD and <span class="down">-0.68%</span> post-FOMC. The dollar's incremental yield advantage over sterling has widened since the FOMC decision, producing consistent GBP weakness. The Bank of England's own rate trajectory and UK inflation data will be the key drivers going forward.
+Cable at <span class="num">1.3400</span>, down <span class="down">-0.30%</span> YTD and <span class="down">-0.68%</span> post-FOMC. The dollar's incremental yield advantage over sterling has widened since the FOMC decision, producing consistent GBP weakness. The Bank of England's own rate trajectory and UK inflation data will be the key drivers going forward.
 
 ### Gold (GC=F)
 
