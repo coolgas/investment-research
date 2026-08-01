@@ -29,7 +29,7 @@ to the top of the 10Y yield" — buying the max-suppression zone as it is made.
 ## Kill switch (unchanged, mechanical)
 - Delivered rate HIKES → stop adding
 - DXY closes above ~101.6 → stop adding
-- Gold closing loss of 4,000 → stop adding
+- Gold **closing below ~3,650** (a confirmed break of the entire modeled floor — 2008-parity 3,737 / stretch zone 3,700; ~100 below the deepest modeled level) → stop adding: suppression has become something deeper/disorderly than the thesis assumed. Reassess, don't feed it.
 - A decade-high yield does NOT revoke the kill switch. It remains the protection if "near the top" becomes "a new decade top."
 
 ## Sizing / risk framing
