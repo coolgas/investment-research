@@ -9,10 +9,10 @@ tags:
   - yfinance
 ---
 
-# Data Refresh: 2026-05-25
+# Data Refresh: May 25, 2026
 
-**Latest close data by asset class.** Data pulled via yfinance as of 2026-05-25T11:38:45 UTC.
-**Periods:** Daily change (prev close) | YTD (first trading day of 2026) | Post-FOMC (Apr 29, 2026)
+**Latest close data by asset class.** Equities close May 22 (Friday). Commodities, DXY close May 25 (Monday). GBP/USD closes continuously.
+**Periods:** Daily change (prev close) | YTD (Jan 2, 2026) | Post-FOMC (Apr 29, 2026)
 
 ## Broad Market & Indices
 
@@ -21,8 +21,8 @@ tags:
 | SPY | S&P 500 | <span class="num">745.64</span> | <span class="up">+0.39%</span> | <span class="up">+9.44%</span> | <span class="up">+4.79%</span> |
 | QQQ | Nasdaq-100 | <span class="num">717.54</span> | <span class="up">+0.42%</span> | <span class="up">+17.18%</span> | <span class="up">+8.46%</span> |
 | IWM | Small Caps (Russell) | <span class="num">285.12</span> | <span class="up">+0.93%</span> | <span class="up">+14.81%</span> | <span class="up">+4.79%</span> |
-| ^TNX | 10Y Treasury Yield | <span class="num">4.56%</span> | <span class="down">-0.61%</span> | <span class="up">+8.86%</span> | <span class="up">+3.17%</span> |
-| DX-Y.NYB | US Dollar Index (DXY) | <span class="num">99.32</span> | <span class="up">+0.13%</span> | <span class="up">+0.91%</span> | <span class="up">+0.40%</span> |
+| ^TNX | 10Y Treasury Yield | <span class="num">4.558%</span> | <span class="down">-0.61%</span> | <span class="up">+8.86%</span> | <span class="up">+3.17%</span> |
+| DX-Y.NYB | US Dollar Index (DXY) | <span class="num">98.94</span> | <span class="down">-0.38%</span> | <span class="up">+0.53%</span> | <span class="up">+0.02%</span> |
 
 ## Sector ETFs
 
@@ -64,20 +64,26 @@ tags:
 
 | Ticker | Name | Price | Daily % | YTD % | Post-FOMC % |
 |--------|------|-------|-------|-----|-----------|
-| GC=F | Gold (Futures) | <span class="num">4521.00</span> | <span class="down">-0.41%</span> | <span class="up">+4.79%</span> | <span class="down">-0.53%</span> |
-| CL=F | Crude Oil (WTI) | <span class="num">96.60</span> | <span class="up">+0.26%</span> | <span class="up">+68.53%</span> | <span class="down">-9.62%</span> |
-| GBPUSD=X | GBP/USD | <span class="num">1.3400</span> | <span class="down">-0.01%</span> | <span class="down">-0.30%</span> | <span class="down">-0.68%</span> |
+| GC=F | Gold (Futures) | <span class="num">4,523.20</span> | <span class="up">+0.05%</span> | <span class="up">+4.84%</span> | <span class="down">-0.48%</span> |
+| CL=F | Crude Oil (WTI) | <span class="num">96.60</span> | <span class="num">+0.00%</span> | <span class="up">+68.53%</span> | <span class="down">-9.62%</span> |
+| GBPUSD=X | GBP/USD | <span class="num">1.3507</span> | <span class="up">+0.55%</span> | <span class="up">+0.24%</span> | <span class="down">-0.13%</span> |
 
 ## SPY-10Y Correlation
 
-<span class="num">SPY-10Y daily return correlation (YTD): -0.386. 20-day rolling: -0.879. Post-FOMC: -0.903.</span>
+Daily SPY returns vs 10Y yield absolute change. Negative = equities fall as yields rise (rate-sensitivity regime).
+
+| Period | N | Pearson r | Interpretation |
+|--------|---|----------|---------------|
+| YTD (Jan 2+) | <span class="num">97</span> | <span class="down">-0.4031</span> | Moderate negative correlation |
+| 20-Day Rolling | <span class="num">20</span> | <span class="down">-0.8789</span> | Very strong negative correlation |
+| Post-FOMC (Apr 29+) | <span class="num">18</span> | <span class="down">-0.9029</span> | Very strong negative correlation |
 
 ## Notes
 
-- Data via **yfinance**. All prices reflect most recent available close as of <span class="num">2026-05-25</span>.
-- YTD return computed from first trading day of 2026 to latest close.
-- Post-FOMC return computed from Apr 29, 2026 close (FOMC decision date) to latest close.
+- Data via yfinance. Close dates: equities May 22 (Friday), commodities/DXY May 25 (Monday), GBP/USD continuous.
+- YTD base: Jan 2, 2026 (Jan 1 is a holiday). Post-FOMC base: Apr 29, 2026 (FOMC decision date).
 - Gold via GC=F (COMEX futures). Crude oil via CL=F (WTI futures).
 - DXY via DX-Y.NYB (US Dollar Index futures). GBP/USD via GBPUSD=X.
-- Span classes: <span class="up">up</span> (green), <span class="down">down</span> (red), <span class="num">num</span> (navy).
+- Span classes: up (green), down (red), num (neutral). No emojis.
 - YTD changes use auto_adjust=True in yfinance, so dividend adjustments are applied to historical prices.
+- 10Y Treasury Yield (^TNX) displayed as raw yield percentage, not price.

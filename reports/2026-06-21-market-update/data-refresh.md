@@ -1,7 +1,7 @@
 # Market Data Refresh: June 21, 2026
 
-**Data pulled**: 2026-06-21 13:02 UTC
-**Period**: YTD (Jan 1, 2026) through Jun 20, 2026
+**Data pulled**: 2026-06-21 15:16 UTC
+**Period**: YTD (2026-01-02) through 2026-06-18
 **2-week window**: Jun 7 - Jun 20, 2026 (nearest trading days used)
 **1-week window**: Jun 14 - Jun 20, 2026
 
@@ -125,4 +125,4 @@
 
 ---
 
-*Generated automatically by Hermes Agent data refresh script on 2026-06-21 13:02 UTC*
+*Generated automatically by Hermes Agent data refresh script on 2026-06-21 15:16 UTC*
