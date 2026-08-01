@@ -1,24 +1,45 @@
 ---
-title: SGLD Build Strategy — 20/20/40/20
-date: 2026-07-31
+title: SGLD Build Strategy — Yield-Anchored Ladder (v2)
+date: 2026-08-01
 ---
 
-# SGLD Build Strategy — 20/20/40/20 (Mini-08)
+# SGLD Build Strategy — Yield-Anchored Ladder (v2)
 
-**Total: £10,000 (~35 SGLD.L shares at current) | Vehicle: SGLD.L (Invesco Physical Gold ETC, USD-quoted on LSE) | Gold ref: 4,098.60 (-22.9% from ATH 5,318.40)**
+**Total: £10,000 (~26 SGLD.L shares at current) | Vehicle: SGLD.L (Invesco Physical Gold ETC, USD-quoted on LSE)**
+**Gold ref: 4,049 | 10Y nominal: 4.745% (top 0.8% of last-10y closes, ~95% up the decade range) | Driver: 10Y nominal yield (leading variable), not gold price**
 
-| Tranche | Size | Gold level | SGLD.L USD | SGLD.L GBP/sh | Trigger |
+## Thesis (unchanged core, reframed around yields)
+Gold is suppressed by historically high nominal/real yields + firm dollar + hawkish-tilt Fed.
+Gold is a **leading** indicator vs rates: it bottoms **at or slightly before** the rate-cycle peak
+(measured: 2018 gold led by ~1 month; 2022 coincident; 2015 hike = the low). Therefore the gold
+low tracks the **yield top and its turn**, not the yield level itself. The build scales in "gradually
+to the top of the 10Y yield" — buying the max-suppression zone as it is made.
+
+## Ladder (anchor = 10Y nominal yield)
+
+| Tranche | Size | 10Y trigger | Gold level (approx) | SGLD.L USD (approx) | Rationale |
 |---|---|---|---|---|---|
-| T1 | 20% (£2,000 ~ 7sh) | ~4,099 | 388.35 | 288.0 | Next week, split around NFP Aug 7 — pivot insurance |
-| T2 | 20% (£2,000) | any | any | any | On signal: DXY <99 close / ETF outflow stop / Fed-cut talk |
-| T3a | 13% (£1,330) | 4,021 | 381.0 | 282.5 | Ladder |
-| T3b | 13% (£1,335) | 3,950 | 374.3 | 277.5 | Ladder |
-| T3c | 13% (£1,335) | 3,800 | 360.1 | 267.0 | Ladder — your -10% zone |
-| T3d | 13% (£1,335) | 3,737 | 354.1 | 262.5 | Ladder — 2008-parity |
-| T4 | 20% (£2,000) | <3,700 or >4,300 | — | — | Credit-crack panic OR pivot rip (one fires) |
+| T1 | 20% (£2,000 ~7sh) | 4.75 (now, 2026-08-01) | ~4,049 | 388 | Cheap optionality, in the gate |
+| T2 | 20% (£2,000) | 4.85 | ~3,980 | ~381 | Adds as yield stretches toward 2023 peak |
+| T3 | 20% (£2,000) | 4.95–4.99 | ~3,900 | ~374 | Decade-peak zone = max-suppression buy |
+| T4 | 40% (£4,000) | 2-sided trigger | — | — | (a) yield rolls over from peak → deploy all (confirms gold bottom); OR (b) 10Y breaks & holds above 4.99 still climbing → thesis shifts to more downside, this powder buys cheaper. Only one fires; keep dry until so |
 
-**Kill switch:** delivered hikes / DXY >101.6 / gold close-loss of 4,000 → stop adding.
-**Blended cost if fully laddered:** ~3,920 gold equiv (vs 4,090 buying 40% now).
-**Notes:** SGLD.L quotes in USD on LSE; GBP/share = USD / GBPUSD (1.3487 on 2026-07-31). SGLP.L (GBP-quoted line) trades near the same GBP value (~288.57). Share ratio verified: 388.35 / 4,098.60 = 0.09475; ladder uses it for all levels.
+**Blended cost if T1–T3 complete (~60% deployed):** ~3,980 gold equiv; T4 dry for the resolution leg.
 
-*Research, not investment advice. Data: yfinance, 2026-07-31.*
+## Kill switch (unchanged, mechanical)
+- Delivered rate HIKES → stop adding
+- DXY closes above ~101.6 → stop adding
+- Gold closing loss of 4,000 → stop adding
+- A decade-high yield does NOT revoke the kill switch. It remains the protection if "near the top" becomes "a new decade top."
+
+## Sizing / risk framing
+- Position sized so a further **-10% gold move** (4,049 → ~3,650; SGLD ~388 → ~345) is survivable even if T1–T3 complete.
+- T4 stays dry to absorb the deeper leg if the break-over-4.99 scenario fires.
+- Discipline: do NOT front-load the full £10k at current yield. Earlier tranches small; largest firepower waits for the yield-tops / yield-breaks resolution.
+
+## Notes
+- SGLD.L quotes in **USD** on LSE; GBP/share = USD / GBPUSD (1.3487 on 2026-07-31). SGLP.L (GBP-quoted line) trades near same GBP value (~288).
+- Share ratio verified: 388.35 / 4,098.60 = 0.09475; ladder gold→SGLD applies this ratio.
+- 10Y context: last-10y high 4.988% (2023-10-19); all-time (since 1996) 7.047%. Current 4.745% is below the 2023 peak but climbing (+8%/3M, +6%/1M).
+
+*Research, not investment advice. Data: yfinance, as of 2026-08-01.*
